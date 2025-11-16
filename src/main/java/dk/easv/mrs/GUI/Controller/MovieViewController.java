@@ -5,8 +5,11 @@ import dk.easv.mrs.BE.Movie;
 import dk.easv.mrs.GUI.Model.MovieModel;
 
 //Java Imports
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import java.net.URL;
@@ -18,6 +21,12 @@ public class MovieViewController implements Initializable {
     public TextField txtMovieSearch;
     public ListView<Movie> lstMovies;
     private MovieModel movieModel;
+    @FXML
+    private TextField txtTitle;
+    @FXML
+    private TextField txtYear;
+    @FXML
+    private Button btnClick;
 
     public MovieViewController()  {
 
@@ -52,5 +61,15 @@ public class MovieViewController implements Initializable {
         alert.setTitle("Something went wrong");
         alert.setHeaderText(t.getMessage());
         alert.showAndWait();
+    }
+
+    @FXML
+    private void btnHandleClick(ActionEvent actionEvent) throws Exception {
+        String title = txtTitle.getText();
+        int year = Integer.parseInt(txtYear.getText());
+
+        Movie newMovie = new Movie(-1 ,year, title);
+
+        movieModel.createMovie(newMovie);
     }
 }
