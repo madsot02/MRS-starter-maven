@@ -12,5 +12,7 @@
       <TextField fx:id="txtTitle" layoutX="10.0" layoutY="29.0" prefHeight="25.0" prefWidth="320.0" promptText="Movie Title" />
       <TextField fx:id="txtYear" layoutX="10.0" layoutY="71.0" prefHeight="25.0" prefWidth="169.0" promptText="Movie Year" />
       <Button fx:id="btnClick" layoutX="189.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnHandleClick" prefHeight="25.0" prefWidth="137.0" text="Create" />
+      <Button layoutX="189.0" layoutY="106.0" mnemonicParsing="false" onAction="#btnHandleUpdate" prefHeight="25.0" prefWidth="137.0" text="Update" />
+      <Button layoutX="189.0" layoutY="142.0" mnemonicParsing="false" onAction="#btnHandleDelete" prefHeight="25.0" prefWidth="137.0" text="Delete" />
    </children>
 </AnchorPane>
