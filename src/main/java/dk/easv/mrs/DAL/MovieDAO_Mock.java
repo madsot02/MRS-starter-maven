@@ -1,5 +1,8 @@
+//Project Imports
 package dk.easv.mrs.DAL;
 import dk.easv.mrs.BE.Movie;
+
+//Java Imports
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class MovieDAO_Mock implements IMovieDataAccess {
         allMovies.add(new Movie(1, 1991,"Terminator 2"));
         allMovies.add(new Movie(2, 2001,"Harry Potter and the Sorcerer´s Stone"));
         allMovies.add(new Movie(3, 2010, "Inception"));
+        allMovies.add(new Movie(4,2009, "Inglorious Basterds"));
     }
 
     @Override
@@ -21,7 +25,7 @@ public class MovieDAO_Mock implements IMovieDataAccess {
     }
 
     @Override
-    public Movie createMovie(String title, int year) throws Exception {
+    public Movie createMovie(Movie movie) throws Exception {
         return null;
     }
 

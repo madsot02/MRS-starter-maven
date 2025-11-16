@@ -1,4 +1,7 @@
+//Project Imports
 package dk.easv.mrs.GUI;
+
+//Java Imports
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,5 +1,8 @@
+//Project Imports
 package dk.easv.mrs.BLL.util;
 import dk.easv.mrs.BE.Movie;
+
+//Java Imports
 import java.util.ArrayList;
 import java.util.List;
 
