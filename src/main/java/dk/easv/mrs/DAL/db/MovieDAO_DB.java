@@ -1,6 +1,7 @@
 package dk.easv.mrs.DAL.db;
 
 import dk.easv.mrs.BE.Movie;
+import dk.easv.mrs.DAL.IMovieDataAccess;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieDAO_DB {
+public class MovieDAO_DB implements IMovieDataAccess {
 
     public List<Movie> getAllMovies() throws Exception {
         ArrayList<Movie> allMovies = new ArrayList<>();
@@ -40,5 +41,20 @@ public class MovieDAO_DB {
             ex.printStackTrace();
             throw new Exception("Could not get movies from database", ex);
         }
+    }
+
+    @Override
+    public Movie createMovie(Movie newMovie) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void updateMovie(Movie movie) throws Exception {
+
+    }
+
+    @Override
+    public void deleteMovie(Movie movie) throws Exception {
+
     }
 }

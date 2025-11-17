@@ -92,5 +92,15 @@ public class MovieViewController implements Initializable {
 
     @FXML
     private void btnHandleDelete(ActionEvent actionEvent) throws Exception {
+        Movie selectedMovie = lstMovies.getSelectionModel().getSelectedItem();
+
+        if(selectedMovie != null){
+            try{
+                movieModel.deleteMovie(selectedMovie);
+            }
+            catch (Exception err) {
+                displayError(err);
+            }
+        }
     }
 }

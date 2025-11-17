@@ -49,4 +49,8 @@ public class MovieModel {
         //m.setTitle(updatedMovie.getTitle());
         //m.setYear(updatedMovie.getYear());
     }
+    public void deleteMovie(Movie selectedMovie) throws Exception{
+        movieManager.deleteMovie(selectedMovie);
+        moviesToBeViewed.remove(selectedMovie);
+    }
 }
