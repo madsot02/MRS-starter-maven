@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MOVIEDAO_DB {
+public class MovieDAO_DB {
 
     public List<Movie> getAllMovies() throws Exception {
         ArrayList<Movie> allMovies = new ArrayList<>();
