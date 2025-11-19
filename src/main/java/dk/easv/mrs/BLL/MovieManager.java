@@ -8,6 +8,7 @@ import dk.easv.mrs.DAL.MovieDAO_Mock;
 import dk.easv.mrs.DAL.db.MovieDAO_DB;
 
 //Java Imports
+import java.io.IOException;
 import java.util.List;
 
 public class MovieManager {
@@ -15,7 +16,7 @@ public class MovieManager {
     private MovieSearcher movieSearcher = new MovieSearcher();
     private IMovieDataAccess movieDAO;
 
-    public MovieManager() {
+    public MovieManager() throws IOException {
         movieDAO = new MovieDAO_DB();
     }
 
