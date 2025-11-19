@@ -5,6 +5,7 @@ import dk.easv.mrs.BE.Movie;
 import dk.easv.mrs.GUI.Model.MovieModel;
 
 //Java Imports
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,7 @@ public class MovieViewController implements Initializable {
 
 
     public TextField txtMovieSearch;
-    public ListView<Movie> lstMovies;
+
     private MovieModel movieModel;
     @FXML
     private TextField txtTitle;
@@ -52,7 +53,12 @@ public class MovieViewController implements Initializable {
 
         tblMovies.setItems(movieModel.getObservableMovies());
 
-        lstMovies.setItems(movieModel.getObservableMovies());
+        tblMovies.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, selectedMovie) -> {
+            if(selectedMovie != null) {
+                txtTitle.setText(selectedMovie.getTitle());
+                txtYear.setText(selectedMovie.getYear() + "");
+            }
+        } );
 
         txtMovieSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
@@ -85,7 +91,7 @@ public class MovieViewController implements Initializable {
 
     @FXML
     private void btnHandleUpdate(ActionEvent actionEvent) throws Exception {
-        Movie selectedMovie = lstMovies.getSelectionModel().getSelectedItem();
+        Movie selectedMovie = tblMovies.getSelectionModel().getSelectedItem();
 
         if (selectedMovie != null){
             // update movie based on textfield inputs from user
@@ -96,13 +102,15 @@ public class MovieViewController implements Initializable {
             movieModel.updateMovie(selectedMovie);
 
             // ask controls to refresh their content
-            lstMovies.refresh();
+            tblMovies.refresh();
+            tblMovies.scrollTo(selectedMovie);
+            tblMovies.getSelectionModel().select(tblMovies.getItems().indexOf(selectedMovie));
         }
     }
 
     @FXML
     private void btnHandleDelete(ActionEvent actionEvent) throws Exception {
-        Movie selectedMovie = lstMovies.getSelectionModel().getSelectedItem();
+        Movie selectedMovie = tblMovies.getSelectionModel().getSelectedItem();
 
         if(selectedMovie != null){
             try{
